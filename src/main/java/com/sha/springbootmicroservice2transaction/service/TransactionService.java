@@ -11,8 +11,11 @@ import java.util.List;
 @Service
 public class TransactionService implements ITransactionService
 {
-    @Autowired
-    private ITransactionRepository transactionRepository;
+    private final ITransactionRepository transactionRepository;
+
+    public TransactionService(ITransactionRepository transactionRepository) {
+        this.transactionRepository = transactionRepository;
+    }
 
     @Override
     public Transaction saveTransaction(Transaction transaction){
